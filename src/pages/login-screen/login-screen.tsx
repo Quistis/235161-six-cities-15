@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useState, FormEvent, ChangeEvent, MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { changeCity } from '../../store/action';
+import { citySlice } from '../../store/slices/city-slice';
 import { getAuthLoadingStatus } from '../../store/selectors/authorization-selectors';
 import { loginAction } from '../../store/api-actions';
 import { AppRoutes, CITIES } from '../../const';
@@ -15,6 +15,7 @@ function LoginScreen(): JSX.Element {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const {changeCity} = citySlice.actions;
 
   const authLoadingStatus = useAppSelector(getAuthLoadingStatus);
 

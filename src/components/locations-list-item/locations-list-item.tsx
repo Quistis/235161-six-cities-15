@@ -1,6 +1,6 @@
 import { MouseEvent, memo } from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import { changeCity } from '../../store/action';
+import { citySlice } from '../../store/slices/city-slice';
 import { getCurrentCity } from '../../store/selectors/city-selectors';
 import { CityType } from '../../types/offer';
 
@@ -13,6 +13,7 @@ const LocationsListItem = memo(({city}: LocationsListItemProps): JSX.Element => 
   const activeItemClass = 'tabs__item--active';
   const currentCity = useAppSelector(getCurrentCity);
   const dispatch = useAppDispatch();
+  const {changeCity} = citySlice.actions;
 
   function handleCityClick (evt: MouseEvent<HTMLElement>) {
     const target = evt.target as HTMLElement;

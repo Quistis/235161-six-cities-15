@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { changeCity } from '../../store/action';
+import { citySlice } from '../../store/slices/city-slice';
 import { fetchOfferById, fetchNearbyOffers, fetchComments } from '../../store/api-actions';
 import { getCurrentOffer, getCurrentOfferLoadingStatus, getCurrentOfferErrorStatus, getNearbyOffers, getComments } from '../../store/selectors/offers-selectors';
 import { getCurrentCity } from '../../store/selectors/city-selectors';
@@ -16,6 +16,7 @@ import Loader from '../../components/loader/loader';
 function OfferScreen(): JSX.Element {
   const {id} = useParams();
   const dispatch = useAppDispatch();
+  const {changeCity} = citySlice.actions;
 
   useEffect(() => {
     if (id) {
@@ -43,7 +44,7 @@ function OfferScreen(): JSX.Element {
     if (currentOffer) {
       dispatch(changeCity({cityName: currentOffer?.city.name}));
     }
-  }, [currentOffer, dispatch]);
+  }, [currentOffer, dispatch, changeCity]);
 
   if (isLoading) {
     return <Loader />;

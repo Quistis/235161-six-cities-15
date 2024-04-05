@@ -1,22 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { changeSorting } from '../action';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Setting } from '../../const';
 
-const initialState: string = Setting.defaultSorting;
+type ChangeSortingPayload = {
+  sorting: string;
+}
 
-const sortingSlice = createSlice({
+type SortingSliceType = {
+  currentSortType: string;
+}
+
+const initialState: SortingSliceType = {
+  currentSortType: Setting.defaultSorting,
+};
+
+export const sortingSlice = createSlice({
   name: 'sorting',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(changeSorting, (state, action) => {
-        const {sorting} = action.payload;
-        //TODO: Нужно доработать, пока что сделал так, чтобы линтер не выдавал ошибок
-        state = sorting;
-        return state;
-      });
-  }
+  reducers: {
+    changeSorting: (state ,action: PayloadAction<ChangeSortingPayload>) => {
+      const {sorting} = action.payload;
+      state.currentSortType = sorting;
+    }
+  },
 });
 
 export const sortingReducer = sortingSlice.reducer;
