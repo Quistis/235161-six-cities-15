@@ -29,14 +29,15 @@ const LocationsListItem = memo(({city}: LocationsListItemProps): JSX.Element => 
       className="locations__item"
       onClick={handleCityClick}
     >
-      <a
+      <div
         className={`locations__item-link tabs__item ${name === currentCity.name ? activeItemClass : ''}`}
-        href="#"
+        style={{cursor: 'pointer'}}
+        // href="#"
       >
         <span>
           {name}
         </span>
-      </a>
+      </div>
     </li>
   );
 });

@@ -5,8 +5,8 @@ import { OfferType } from '../../types/offer';
 import useMap from '../../hooks/use-map/use-map';
 import { CityType } from '../../types/offer';
 
-const DEFAULT_MARKER_URL = 'img/pin.svg';
-const ACTIVE_MARKER_URL = 'img/pin-active.svg';
+const DEFAULT_MARKER_URL = '/235161-six-cities-15/img/pin.svg';
+const ACTIVE_MARKER_URL = '/235161-six-cities-15/img/pin-active.svg';
 
 type MapProps = {
   city: CityType;

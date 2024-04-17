@@ -32,7 +32,7 @@ function App(): JSX.Element {
 
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename='/235161-six-cities-15'>
         <Routes>
           <Route path={AppRoutes.Main} element={<Layout />}>
             <Route index element={<MainScreen />}></Route>

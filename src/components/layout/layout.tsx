@@ -57,7 +57,7 @@ function Layout(): JSX.Element {
           <div className="header__wrapper">
             <div className="header__left">
               <Link className={`header__logo-link${linkClassName}`} to={AppRoutes.Main}>
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+                <img className="header__logo" src="/235161-six-cities-15/img/logo.svg" alt="6 cities logo" width="81" height="41"/>
               </Link>
             </div>
             {shouldRenderUser ? (
@@ -99,7 +99,7 @@ function Layout(): JSX.Element {
       {isFavoritePage ? (
         <footer className="footer container">
           <Link className="footer__logo-link" to={AppRoutes.Main}>
-            <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33" />
+            <img className="footer__logo" src="/235161-six-cities-15/img/logo.svg" alt="6 cities logo" width="64" height="33" />
           </Link>
         </footer>
       ) : null}
